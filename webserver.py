@@ -22,12 +22,15 @@ def message():
 def webhook():
     data = request.get_json()
 
+    if not data:
+        return jsonify({"error": "invalid payload"}), 400
+
     resource = data.get("resource", {})
     payment_id = resource.get("id")
     payment_type = resource.get("type")
 
-    if not payment_id:
-        return jsonify({"error": "invalid payload"}), 400
+    if payment_type != "message":
+         return jsonify({"status": "ok"}), 200
 
     set_cache(
         "payment_" + payment_id,

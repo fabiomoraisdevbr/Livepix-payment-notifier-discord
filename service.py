@@ -32,7 +32,7 @@ def get_access_token():
         "grant_type": "client_credentials",
         "client_id": client_id,
         "client_secret": client_secret,
-        "scope": "payments:read webhooks"
+        "scope": "payments:read messages:read webhooks"
     }
 
     headers = {
@@ -59,7 +59,7 @@ def get_payment_details(payment_id):
     payment = payment_id.replace("payment_", "")
 
 
-    url = f"https://api.livepix.gg/v2/payments/{paymentId}"
+    url = f"https://api.livepix.gg/v2/messages/{payment}"
     #url = f"http://localhost:8081/v2/payments/{payment}"
 
     headers = {
@@ -76,6 +76,8 @@ def get_payment_details(payment_id):
 
     amount = data.get("amount")
     currency = data.get("currency")
+    user_name = data.get("username")
+    message = data.get("message")
 
     if amount is None or currency is None:
         raise ValueError("Resposta sem amount ou currency")
@@ -84,7 +86,9 @@ def get_payment_details(payment_id):
         f"payment_details_{payment_id}",
         {
             "amount": amount,
-            "currency": currency
+            "currency": currency,
+            "user_name": user_name,
+            "message": message
         },
         ttl=300
     )

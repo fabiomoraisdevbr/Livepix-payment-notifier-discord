@@ -38,15 +38,27 @@ async def send_message():
 
         amount = value.get("amount")
         currency = value.get("currency")
-        if amount and currency:
+        user_name = value.get("user_name")
+        message_content = value.get("message")
+
+        # Converter centavos para reais
+        if amount:
+            reais = amount / 100
+            formatted_amount = f"R$ {reais:.2f}"
+        else:
+            formatted_amount = "Valor não disponível"
+
+        if amount and currency and user_name and message_content:
             message = (
-                f"<@{user_id}> você recebeu um novo pagamento!\n"
-                f"{amount} {currency} 💸"
+                f"<@{user_id}> "
+                f"você recebeu um novo pagamento!\n "
+                f"\n"
+                f"🥸   •**usuário:** {user_name} \n\n"
+                f"💸   •**valor:** {formatted_amount} {currency} \n\n"
+                f"💬   •**Mensagem:** {message_content}\n"
             )
         else:
             message = f"<@{user_id}> pagamento recebido (dados incompletos) ⚠️"
-    else:
-        message = f"<@{user_id}> Mensagem vinda de HTTP 🚀"
 
     await channel.send(message)
 
