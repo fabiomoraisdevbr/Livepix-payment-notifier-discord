@@ -17,7 +17,7 @@
 
 ---
 
-## 📸 Notificação em ação
+## 📸 Imagem da notificação
 
 <img width="488" height="205" alt="Screenshot 2026-05-07 055015" src="https://github.com/user-attachments/assets/70350ecf-df82-48bb-bda2-9c2f660614f2" />
 
