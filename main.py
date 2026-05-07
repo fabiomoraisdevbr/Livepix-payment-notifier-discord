@@ -19,8 +19,8 @@ intents.message_content = True
 intents.members = True
 
 bot = commands.Bot(command_prefix='!', intents=intents)
-user_id = 1458918001477685374
-channel_id = 1501032896218267679
+user_id = os.getenv('DISCORD_USER_ID')
+channel_id = os.getenv('DISCORD_CHANNEL_ID')
 
 
 
