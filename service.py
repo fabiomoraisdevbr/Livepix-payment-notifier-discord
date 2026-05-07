@@ -13,8 +13,8 @@ cache_lock = Lock()
 
 
 load_dotenv()
-client_id = os.getenv("CLIENT_ID")
-client_secret = os.getenv("CLIENT_SECRET")
+client_id = os.getenv("LIVE_PIX_CLIENT_ID")
+client_secret = os.getenv("LIVE_PIX_CLIENT_SECRET")
 trigger_function = None
 
 
