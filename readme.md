@@ -103,7 +103,7 @@ LIVE_PIX_CLIENT_SECRET= segredo do cliente livepix
 python main.py
 ```
 
-> O servidor Flask ficará escutando na porta `8080` por padrão. Configure o webhook no painel do Livepix apontando para `http://seu-servidor:5000/webhook`.
+> O servidor Flask ficará escutando na porta `8080` por padrão. Configure o webhook no painel do Livepix apontando para `http://seu-servidor:8080/webhook`.
 
 ---
 
