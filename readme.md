@@ -76,7 +76,7 @@ Bot envia notificação no Discord com os dados completos
 
 ```bash
 # Clone o repositório
-git clone https://github.com/fabiomoraisdevbr/live-pix-payment-notifier.git
+git clone https://github.com/fabiomoraisdevbr/Livepix-payment-notifier-discord.git
 cd live-pix-payment-notifier
 
 # Instale as dependências
