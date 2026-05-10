@@ -1,0 +1,158 @@
+opencollection: 1.0.0
+info:
+  name: livepix
+config:
+  proxy:
+    inherit: true
+    config:
+      protocol: http
+      hostname: ''
+      port: ''
+      auth:
+        username: ''
+        password: ''
+      bypassProxy: ''
+items:
+  - info:
+      name: livepixGetPayment
+      type: http
+      seq: 4
+    http:
+      method: GET
+      url: https://api.livepix.gg/v2/messages/69f9a7c265db33900f04cd26
+      auth:
+        type: bearer
+        token: ory_at_nBy5h7FEerbkhpuHwqfddQC_14NkZBQUX23-xst_mcU.uQ0ynXPGwQYHnkt7Tnl7bxX19CTlpsTQr_mku4D-Gxg
+    settings:
+      encodeUrl: true
+      timeout: 0
+      followRedirects: true
+      maxRedirects: 5
+  - info:
+      name: lixpixtoken
+      type: http
+      seq: 2
+    http:
+      method: POST
+      url: https://oauth.livepix.gg/oauth2/token
+      headers:
+        - name: Content-Type
+          value: application/x-www-form-urlencoded
+      body:
+        type: form-urlencoded
+        data:
+          - name: grant_type
+            value: client_credentials
+          - name: client_id
+            value: fea16dad-639d-4ddc-8849-8ee203fd7a59
+          - name: client_secret
+            value: xcEG+621ZU7UtSoYE8/icii97/J5qNmDTqdeR8pwYG9H9C61fltUeBFJdFlfM1S/iSPWQYffqHyvfVfolQIHTngeKOwpzqAJ8+PekHRJPipgRUmPeqrHWmU3oUhatQpHUGT8EpjNlFJdNYOgl9hd/kWqdphwMPN3LhO7SkTHW8E
+          - name: scope
+            value: payments:read messages:read webhooks
+      auth: inherit
+    settings:
+      encodeUrl: true
+      timeout: 0
+      followRedirects: true
+      maxRedirects: 5
+  - info:
+      name: mensage
+      type: http
+      seq: 1
+    http:
+      method: GET
+      url: http://localhost:8080/mensage
+      auth: inherit
+    settings:
+      encodeUrl: true
+      timeout: 0
+      followRedirects: true
+      maxRedirects: 5
+  - info:
+      name: mocklivepix DOIS (1)
+      type: http
+      seq: 7
+    http:
+      method: GET
+      url: https://live-pix-payment-notifier.onrender.com/message/test
+      body:
+        type: json
+        data: ''
+      auth:
+        type: bearer
+        token: ory_at_rYoC8xJ3y4Kr_TwH7073CogddYI5PE_A3uTRZpfuQ_0.emePDgEQRCqigPRHdi2u1g5tAxdbjw_gbP1A6g94ByM
+    settings:
+      encodeUrl: true
+      timeout: 0
+      followRedirects: true
+      maxRedirects: 5
+  - info:
+      name: mocklivepix DOIS
+      type: http
+      seq: 6
+    http:
+      method: POST
+      url: http://localhost:8081/oauth2/token
+      body:
+        type: json
+        data: ''
+      auth:
+        type: bearer
+        token: ory_at_rYoC8xJ3y4Kr_TwH7073CogddYI5PE_A3uTRZpfuQ_0.emePDgEQRCqigPRHdi2u1g5tAxdbjw_gbP1A6g94ByM
+    settings:
+      encodeUrl: true
+      timeout: 0
+      followRedirects: true
+      maxRedirects: 5
+  - info:
+      name: mocklivepix
+      type: http
+      seq: 5
+    http:
+      method: GET
+      url: http://localhost:8081/v2/payments/61021c7bdabe5e001225b65b
+      body:
+        type: json
+        data: ''
+      auth:
+        type: bearer
+        token: ory_at_rYoC8xJ3y4Kr_TwH7073CogddYI5PE_A3uTRZpfuQ_0.emePDgEQRCqigPRHdi2u1g5tAxdbjw_gbP1A6g94ByM
+    settings:
+      encodeUrl: true
+      timeout: 0
+      followRedirects: true
+      maxRedirects: 5
+  - info:
+      name: webhook
+      type: http
+      seq: 3
+    http:
+      method: POST
+      url: http://localhost:8080/webhook
+      body:
+        type: json
+        data: |-
+          {
+            "userId": "61021c7bdabe5e001225b65b",
+            "clientId": "61021c7bdabe5e001225b65b",
+            "event": "new",
+            "resource": {
+              "id": "69f9a7c265db33900f04cd26",
+              "reference": "61021c7bdabe5e001225b65b",
+              "type": "message"
+            }
+          }
+      auth: inherit
+    settings:
+      encodeUrl: true
+      timeout: 0
+      followRedirects: true
+      maxRedirects: 5
+bundled: true
+extensions:
+  bruno:
+    ignore:
+      - node_modules
+      - .git
+    exportedAt: '2026-05-10T05:49:08.002Z'
+    exportedUsing: Bruno

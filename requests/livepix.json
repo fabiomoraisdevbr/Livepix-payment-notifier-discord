@@ -1,0 +1,282 @@
+{
+  "info": {
+    "name": "livepix",
+    "description": null,
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "mensage",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://localhost:8080/mensage",
+          "protocol": "http",
+          "host": [
+            "localhost:8080"
+          ],
+          "path": [
+            "mensage"
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "lixpixtoken",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "disabled": false,
+            "type": "default"
+          }
+        ],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "https://oauth.livepix.gg/oauth2/token",
+          "protocol": "https",
+          "host": [
+            "oauth",
+            "livepix",
+            "gg"
+          ],
+          "path": [
+            "oauth2",
+            "token"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "grant_type",
+              "value": "client_credentials",
+              "disabled": false,
+              "type": "default"
+            },
+            {
+              "key": "client_id",
+              "value": "fea16dad-639d-4ddc-8849-8ee203fd7a59",
+              "disabled": false,
+              "type": "default"
+            },
+            {
+              "key": "client_secret",
+              "value": "xcEG+621ZU7UtSoYE8/icii97/J5qNmDTqdeR8pwYG9H9C61fltUeBFJdFlfM1S/iSPWQYffqHyvfVfolQIHTngeKOwpzqAJ8+PekHRJPipgRUmPeqrHWmU3oUhatQpHUGT8EpjNlFJdNYOgl9hd/kWqdphwMPN3LhO7SkTHW8E",
+              "disabled": false,
+              "type": "default"
+            },
+            {
+              "key": "scope",
+              "value": "payments:read messages:read webhooks",
+              "disabled": false,
+              "type": "default"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "webhook",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://localhost:8080/webhook",
+          "protocol": "http",
+          "host": [
+            "localhost:8080"
+          ],
+          "path": [
+            "webhook"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": \"61021c7bdabe5e001225b65b\",\n  \"clientId\": \"61021c7bdabe5e001225b65b\",\n  \"event\": \"new\",\n  \"resource\": {\n    \"id\": \"69f9a7c265db33900f04cd26\",\n    \"reference\": \"61021c7bdabe5e001225b65b\",\n    \"type\": \"message\"\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "livepixGetPayment",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "key": "token",
+            "value": "ory_at_nBy5h7FEerbkhpuHwqfddQC_14NkZBQUX23-xst_mcU.uQ0ynXPGwQYHnkt7Tnl7bxX19CTlpsTQr_mku4D-Gxg",
+            "type": "string"
+          }
+        },
+        "description": "",
+        "url": {
+          "raw": "https://api.livepix.gg/v2/messages/69f9a7c265db33900f04cd26",
+          "protocol": "https",
+          "host": [
+            "api",
+            "livepix",
+            "gg"
+          ],
+          "path": [
+            "v2",
+            "messages",
+            "69f9a7c265db33900f04cd26"
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "mocklivepix",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "key": "token",
+            "value": "ory_at_rYoC8xJ3y4Kr_TwH7073CogddYI5PE_A3uTRZpfuQ_0.emePDgEQRCqigPRHdi2u1g5tAxdbjw_gbP1A6g94ByM",
+            "type": "string"
+          }
+        },
+        "description": "",
+        "url": {
+          "raw": "http://localhost:8081/v2/payments/61021c7bdabe5e001225b65b",
+          "protocol": "http",
+          "host": [
+            "localhost:8081"
+          ],
+          "path": [
+            "v2",
+            "payments",
+            "61021c7bdabe5e001225b65b"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "mocklivepix DOIS",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "key": "token",
+            "value": "ory_at_rYoC8xJ3y4Kr_TwH7073CogddYI5PE_A3uTRZpfuQ_0.emePDgEQRCqigPRHdi2u1g5tAxdbjw_gbP1A6g94ByM",
+            "type": "string"
+          }
+        },
+        "description": "",
+        "url": {
+          "raw": "http://localhost:8081/oauth2/token",
+          "protocol": "http",
+          "host": [
+            "localhost:8081"
+          ],
+          "path": [
+            "oauth2",
+            "token"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "mocklivepix DOIS (1)",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "key": "token",
+            "value": "ory_at_rYoC8xJ3y4Kr_TwH7073CogddYI5PE_A3uTRZpfuQ_0.emePDgEQRCqigPRHdi2u1g5tAxdbjw_gbP1A6g94ByM",
+            "type": "string"
+          }
+        },
+        "description": "",
+        "url": {
+          "raw": "https://live-pix-payment-notifier.onrender.com/message/test",
+          "protocol": "https",
+          "host": [
+            "live-pix-payment-notifier",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "message",
+            "test"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "variable": []
+}
